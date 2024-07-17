@@ -1,4 +1,5 @@
 import { Badge, Card, Flex, Grid, Text } from '@mantine/core';
+import Link from 'next/link';
 import { Anime } from '../../interfaces/Anime';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 export const CardAnime = ({ anime }: Props) => (
   <Grid.Col key={anime.mal_id} span={{ base: 12, xs: 12, sm: 6, md: 4, lg: 3 }}>
     <Card
+      component={Link}
+      href={`/anime/${anime.mal_id}`}
       style={{
         backgroundImage: `url(${anime.images.jpg.image_url})`,
         backgroundSize: 'cover',

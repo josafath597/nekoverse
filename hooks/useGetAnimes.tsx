@@ -5,6 +5,11 @@ import { ResponseApiAnime } from '../interfaces/Anime';
 const getAnimes = async (page: number, limit: number) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_URL_ANIMES}/top/anime?page=${page}&limit=${limit}&order_by=popularity`,
+    {
+      next: {
+        revalidate: 60 * 60 * 30 * 6,
+      },
+    },
   );
   if (!response.ok) {
     throw new Error('Something went wrong!');
