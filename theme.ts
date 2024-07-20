@@ -38,6 +38,7 @@ export const theme = createTheme({
       '#FFFFFF',
     ],
   },
+  defaultGradient: { from: '#6A0DAD', to: '#8A2BE2', deg: 135 },
   black: '#2C2C2C',
   autoContrast: true,
   shadows: {

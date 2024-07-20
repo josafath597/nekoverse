@@ -6,7 +6,7 @@ import { Anime } from '../../interfaces/Anime';
 import { CardAnime } from '../CardAnime/CardAnime';
 
 const GridAnimes = () => {
-  const { queryData, page, limit, setPage, setLimit } = useGetAnimes();
+  const { queryData, page, setPage } = useGetAnimes();
   const animes: Anime[] = queryData?.data?.data || [];
   useEffect(() => {
     console.log(queryData?.data?.data);
@@ -24,7 +24,9 @@ const GridAnimes = () => {
       </Flex>
       <Grid>
         {animes.map(anime => (
-          <CardAnime anime={anime} key={anime.mal_id} />
+          <Grid.Col key={anime.mal_id} span={{ base: 12, xs: 12, sm: 6, md: 4, lg: 3 }}>
+            <CardAnime anime={anime} />
+          </Grid.Col>
         ))}
       </Grid>
       <Flex justify="flex-end">

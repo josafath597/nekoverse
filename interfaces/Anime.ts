@@ -40,8 +40,34 @@ export interface Anime {
   explicit_genres: any[];
   themes: Demographic[];
   demographics: Demographic[];
+  theme: theme;
+  relations: Relation[];
+  external: {
+    name: string;
+    url: string;
+  }[];
+  streaming: {
+    name: string;
+    url: string;
+  }[];
 }
 
+export interface Entry {
+  mal_id: number;
+  type: string;
+  name: string;
+  url: string;
+}
+
+export interface Relation {
+  relation: string;
+  entry: Entry[];
+}
+
+export interface theme {
+  openings: string[];
+  endings: string[];
+}
 export interface Aired {
   from: Date;
   to: null;
